@@ -6,5 +6,3 @@
 ### Example Facebook url: https://www.facebook.com/MrBean/videos/312837566084781/
 
 # Longer Videos Take Longer To Download OBV
-
-# Thanks to https://shadowlabs.cc for helping me with downloading the pesky video
