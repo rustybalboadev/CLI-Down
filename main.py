@@ -14,9 +14,18 @@ videotag = soup.find_all('meta', attrs={'property':'og:video:secure_url'})
 video = str(videotag[0])
 video = video.strip('" property="og:video:secure_url"/>')
 video = video.strip('<meta content="')
-final_link = video.split('amp;')
-final_link = final_link[0] + final_link[1] + final_link[2] + final_link[3] + final_link[4]
-r = requests.get(final_link)
+if 'instagram' in args.url:
+    final_link = video.split('amp;')
+    final_link = final_link[0] + final_link[1] + final_link[2] + final_link[3] + final_link[4]
+    r = requests.get(final_link)
+elif 'facebook' in args.url:
+    final_link = video.split('amp;')
+    final = ""
+    for x in range(0,8):
+        final += final_link[x]
+    final_link = final
+    print(final_link)
+    r = requests.get(final_link)
 file_name = args.name + ".mp4"
 x = open(file_name, "wb")
 x.write(r.content)
