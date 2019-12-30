@@ -24,7 +24,6 @@ elif 'facebook' in args.url:
     for x in range(0,8):
         final += final_link[x]
     final_link = final
-    print(final_link)
     r = requests.get(final_link)
 file_name = args.name + ".mp4"
 x = open(file_name, "wb")
