@@ -28,7 +28,7 @@
 <h1 align='center'>Facebook Video</h1>
 
 <h3 align='center'>
-  <code>python main.py url output_name</code>
+  <code>python main.py url output_name</code><br>
   Longer Videos <u>DO</u> Take longer to download
 </h3>
 
