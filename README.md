@@ -1,4 +1,7 @@
-# USAGE
+<p align='center'>
+  <img src='https://github.com/RustyBalboadev/CLI-Down/blob/master/CLI-Down.png'>
+  <h1>CLI-Down</h1><hr>
+  <h1>Usage</h1>
 ### ``python main.py url output_name``
 ### If you want to download a instagram photo use the argument ``-i``
 ### ex. ``python main.py -i url output_name``
