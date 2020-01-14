@@ -15,7 +15,7 @@ res = requests.get(args.url)
 dec = res.content.decode()
 soup = BeautifulSoup(dec, 'html.parser')
 
-
+os.system('cls')
 print(crayons.red("""
    ____ _     ___      ____                      
   / ___| |   |_ _|    |  _ \  _____      ___ __  
@@ -24,7 +24,6 @@ print(crayons.red("""
   \____|_____|___|    |____/ \___/ \_/\_/ |_| |_|                                           
 """))
 
-os.system('cls')
 #Function to get VSCO Image
 def vscoImage():
     print(crayons.green("Getting VSCO Image\n"))
