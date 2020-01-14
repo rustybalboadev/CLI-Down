@@ -3,9 +3,9 @@
   <h1 align='center'>CLI-Down</h1><hr>
   <h1 align='center'>Usage</h1>
 </p>
-<p align='center'>
+<h3 align='center'>
   Standard Syntax: <code>python main.py url output_name [-i]</code>
-</p>
+</h3>
   
 ### Standard Syntax: ``python main.py url output_name [-i]``
 
