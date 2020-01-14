@@ -5,13 +5,13 @@
 </p>
 
 ### Standard Syntax: ``python main.py url output_name [-i]``
-# VSCO
+<h1 align='center'>VSCO</h1>
 ### ``python main.py url -i output_name``
-# Instagram Photo 
+<h1 align='center'>Instagram Photo</h1>
 ### ``python main.py url -i output_name``
-# Instagram Video
+<h1 align='center'>Instagram Video</h1>
 ### ``python main.py url output_name``
-# Facebook Video
+<h1 align='center'>Facebook Video</h1>
 ### ``python main.py url output_name``
 
 ### Longer Videos __DO__ Take Longer To Download
