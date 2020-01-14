@@ -7,21 +7,28 @@
   Standard Syntax: <code>python main.py url output_name [-i]</code>
 </h3>
   
-### Standard Syntax: ``python main.py url output_name [-i]``
 
 <h1 align='center'>VSCO</h1>
 
-### ``python main.py url -i output_name``
+<h3 align='center'>
+  <code>python main.py url -i output_name</code>
+</h3>
 <h1 align='center'>Instagram Photo</h1>
 
-### ``python main.py url -i output_name``
+<h3 align='center'>
+  <code>python main.py url -i output_name</code>
+</h3>
 
 <h1 align='center'>Instagram Video</h1>
 
-### ``python main.py url output_name``
+<h3 align='center'>
+  <code>python main.py url output_name</code>
+</h3>
 
 <h1 align='center'>Facebook Video</h1>
 
-### ``python main.py url output_name``
+<h3 align='center'>
+  <code>python main.py url output_name</code>
+</h3>
 
 ### Longer Videos __DO__ Take Longer To Download
