@@ -29,6 +29,6 @@
 
 <h3 align='center'>
   <code>python main.py url output_name</code>
+  Longer Videos <u>DO</u> Take longer to download
 </h3>
 
-### Longer Videos __DO__ Take Longer To Download
