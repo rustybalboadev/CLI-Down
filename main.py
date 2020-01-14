@@ -4,7 +4,8 @@ import crayons
 import time
 import os
 from bs4 import BeautifulSoup
-os.system('cls')
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--image', action='store_true')
 parser.add_argument('url', help='URL to download video from ex. https://www.instagram.com/p/id')
@@ -13,6 +14,8 @@ args = parser.parse_args()
 res = requests.get(args.url)
 dec = res.content.decode()
 soup = BeautifulSoup(dec, 'html.parser')
+
+
 print(crayons.red("""
    ____ _     ___      ____                      
   / ___| |   |_ _|    |  _ \  _____      ___ __  
@@ -20,6 +23,8 @@ print(crayons.red("""
  | |___| |___ | |_____| |_| | (_) \ V  V /| | | |
   \____|_____|___|    |____/ \___/ \_/\_/ |_| |_|                                           
 """))
+
+os.system('cls')
 #Function to get VSCO Image
 def vscoImage():
     print(crayons.green("Getting VSCO Image\n"))
@@ -36,8 +41,10 @@ def vscoImage():
         x = open(file_name, "wb")
         x.write(r)
         x.close()
-    except:
+    except IndexError:
         print(crayons.red('Something went wrong! Check your syntax'))
+
+
 # Function to get Instagram Image
 def instagramImage():
     try:
@@ -57,11 +64,17 @@ def instagramImage():
         x = open(file_name, 'wb')
         x.write(r)
         x.close()
-    except:
+    except IndexError:
         print(crayons.red('Something went wrong! Check your syntax'))
+
+
 #Function to get Instagram Video
-def instagramVideo(video):
+def instagramVideo():
     try:
+        videotag = soup.find_all('meta', attrs={'property':'og:video:secure_url'})
+        video = str(videotag[0])
+        video = video.strip('" property="og:video:secure_url"/>')
+        video = video.strip('<meta content="')
         print(crayons.green('Getting Instagram Video\n'))
         final_link = video.split('amp;')
         final_link = final_link[0] + final_link[1] + final_link[2] + final_link[3] + final_link[4]
@@ -73,11 +86,17 @@ def instagramVideo(video):
         x = open(file_name, 'wb')
         x.write(r)
         x.close()
-    except:
+    except IndexError:
         print(crayons.red("Something went wrong! Check your syntax!"))
+
+
 #Function to get Facebook Video
-def facebookVideo(video):
+def facebookVideo():
     try:
+        videotag = soup.find_all('meta', attrs={'property':'og:video:secure_url'})
+        video = str(videotag[0])
+        video = video.strip('" property="og:video:secure_url"/>')
+        video = video.strip('<meta content="')
         print(crayons.green("Getting Facebook Video\n"))
         final_link = video.split('amp;')
         final = ""
@@ -92,8 +111,9 @@ def facebookVideo(video):
         x = open(file_name, 'wb')
         x.write(r)
         x.close()
-    except:
+    except IndexError:
         print(crayons.red('Something went wrong! Check your syntax!'))
+
 
 if args.image == True:
     if 'vsco' in args.url:
@@ -101,11 +121,7 @@ if args.image == True:
     elif 'instagram' in args.url:
         instagramImage()
 elif args.image == False:
-    videotag = soup.find_all('meta', attrs={'property':'og:video:secure_url'})
-    video = str(videotag[0])
-    video = video.strip('" property="og:video:secure_url"/>')
-    video = video.strip('<meta content="')
     if 'instagram' in args.url:
-        instagramVideo(video)
+        instagramVideo()
     elif 'facebook' in args.url:
-        facebookVideo(video)
+        facebookVideo()
