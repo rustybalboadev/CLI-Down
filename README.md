@@ -3,7 +3,10 @@
   <h1 align='center'>CLI-Down</h1><hr>
   <h1 align='center'>Usage</h1>
 </p>
-
+<p align='center'>
+   Standard Syntax: ``python main.py url output_name [-i]``
+</p
+  
 ### Standard Syntax: ``python main.py url output_name [-i]``
 
 <h1 align='center'>VSCO</h1>
