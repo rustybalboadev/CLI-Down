@@ -4,7 +4,7 @@
   <h1 align='center'>Usage</h1>
 </p>
 <p align='center'>
-  <code>``python main.py url output_name [-i]``</code>
+  Standard Syntax: <code>python main.py url output_name [-i]</code>
 </p>
   
 ### Standard Syntax: ``python main.py url output_name [-i]``
