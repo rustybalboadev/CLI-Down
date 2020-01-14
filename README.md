@@ -4,7 +4,14 @@
   <h1 align='center'>Usage</h1>
 </p>
 
-# Standard Syntax: ``python main.py url output_name [-i]``
+### Standard Syntax: ``python main.py url output_name [-i]``
+# VSCO
+### ``python main.py url -i output_name``
+# Instagram Photo 
+### ``python main.py url -i output_name``
+# Instagram Video
+### ``python main.py url output_name``
+# Facebook Video
+### ``python main.py url output_name``
 
-
-# Longer Videos Take Longer To Download OBV
+### Longer Videos __DO__ Take Longer To Download
