@@ -5,7 +5,7 @@
 </p>
 <p align='center'>
    Standard Syntax: ``python main.py url output_name [-i]``
-</p
+</p>
   
 ### Standard Syntax: ``python main.py url output_name [-i]``
 
