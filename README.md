@@ -1,7 +1,7 @@
 <p align='center'>
   <img src='https://github.com/RustyBalboadev/CLI-Down/blob/master/CLI-Down.png'>
-  <h1>CLI-Down</h1><hr>
-  <h1>Usage</h1>
+  <h1 slign='center'>CLI-Down</h1><hr>
+  <h1 align='center'>Usage</h1>
 </p>
 ### ``python main.py url output_name``
 ### If you want to download a instagram photo use the argument ``-i``
