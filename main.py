@@ -24,6 +24,7 @@ print(crayons.red("""
   \____|_____|___|    |____/ \___/ \_/\_/ |_| |_|                                           
 """))
 
+
 #Function to get VSCO Image
 def vscoImage():
     print(crayons.green("Getting VSCO Image\n"))
@@ -42,7 +43,6 @@ def vscoImage():
         x.close()
     except IndexError:
         print(crayons.red('Something went wrong! Check your syntax'))
-
 
 # Function to get Instagram Image
 def instagramImage():
@@ -76,7 +76,10 @@ def instagramVideo():
         video = video.strip('<meta content="')
         print(crayons.green('Getting Instagram Video\n'))
         final_link = video.split('amp;')
-        final_link = final_link[0] + final_link[1] + final_link[2] + final_link[3] + final_link[4]
+        final_link = final_link[0] + final_link[1] + final_link[2] + final_link[3] + final_link[4] + "c"
+        checkPage = requests.get(final_link).text
+        if 'Bad URL' in checkPage:
+            final_link = final_link[:-1]
         r = requests.get(final_link).content
         print(crayons.green("Direct Link: \n{}\n".format(final_link)))
         time.sleep(1)
