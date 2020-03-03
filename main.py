@@ -4,12 +4,17 @@ import crayons
 import time
 import os
 from bs4 import BeautifulSoup
-
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--image', action='store_true')
 parser.add_argument('url', help='URL to download video from ex. https://www.instagram.com/p/id')
 parser.add_argument('name', help='Output name')
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--log-level=3')
+driver = webdriver.Chrome(options=options)
 args = parser.parse_args()
 res = requests.get(args.url)
 dec = res.content.decode()
@@ -93,30 +98,59 @@ def instagramVideo():
 
 
 #Function to get Facebook Video
-def facebookVideo():
+def facebookVideo(url):
     try:
-        videotag = soup.find_all('meta', attrs={'property':'og:video:secure_url'})
-        video = str(videotag[0])
-        video = video.strip('" property="og:video:secure_url"/>')
-        video = video.strip('<meta content="')
-        print(crayons.green("Getting Facebook Video\n"))
+        print(crayons.green("Getting Facebook Video"))
+        driver.get(url)
+        time.sleep(4)
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        driver.quit()
+        content = """"""
+        content += soup.prettify()
+        soup = BeautifulSoup(content, 'html.parser')
+        video_tag = soup.find_all('meta', attrs={'property':'og:video'})
+        video = video_tag[0]
+        video = str(video).split(' ')[1]
+        video = video.strip('content="')
         final_link = video.split('amp;')
-        final = ""
-        for x in range(0,8):
-            final += final_link[x]
-        final_link = final
-        r = requests.get(final_link).content
-        print(crayons.green('Direct Link: \n{}\n'.format(final_link)))
+        video_link = ""
+        for each in final_link:
+            video_link += each
+        print(crayons.green('Direct Link: \n{}\n'.format(video_link)))
+        r = requests.get(video_link).content
         time.sleep(1)
         file_name = args.name + ".mp4"
-        print(crayons.green("Saving Video: {}".format(file_name)))
+        print(crayons.green('Saving Video: {}'.format(file_name)))
         x = open(file_name, 'wb')
         x.write(r)
         x.close()
     except IndexError:
         print(crayons.red('Something went wrong! Check your syntax!'))
 
-
+def twitchClip(url):
+    try:
+        driver.get(url)
+        time.sleep(4)
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        driver.quit()
+        content = """"""
+        content += soup.prettify()
+        soup = BeautifulSoup(content, 'html.parser')
+        video_tag = soup.find_all('video')
+        video = video_tag[0]
+        video = str(video).split(' ')[2]
+        video = video.split('src="')[1]
+        video_link = video[:-1]
+        print(crayons.green('Direct Link: \n{}\n'.format(video_link)))
+        r = requests.get(video_link).content
+        time.sleep(1)
+        file_name = args.name + ".mp4"
+        print(crayons.green('Saving Video: {}'.format(file_name)))
+        x = open(file_name, 'wb')
+        x.write(r)
+        x.close()
+    except IndexError:
+        print(crayons.red('Something went wrong! Check your syntax! '))
 if args.image == True:
     if 'vsco' in args.url:
         vscoImage()
@@ -126,4 +160,6 @@ elif args.image == False:
     if 'instagram' in args.url:
         instagramVideo()
     elif 'facebook' in args.url:
-        facebookVideo()
+        facebookVideo(args.url)
+    elif 'twitch' in args.url:
+        twitchClip(args.url)
