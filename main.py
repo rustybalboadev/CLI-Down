@@ -126,7 +126,7 @@ def facebookVideo(url):
         x.close()
     except IndexError:
         print(crayons.red('Something went wrong! Check your syntax!'))
-
+#function to get twitch clip
 def twitchClip(url):
     try:
         driver.get(url)
@@ -151,6 +151,28 @@ def twitchClip(url):
         x.close()
     except IndexError:
         print(crayons.red('Something went wrong! Check your syntax! '))
+#function to get tiktok downloader
+def tiktokVideo(url):
+    try:
+        driver.get(url)
+        time.sleep(4)
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        driver.quit()
+        content = """"""
+        content += soup.prettify()
+        soup = BeautifulSoup(content, 'html.parser')
+        video_tag = soup.find_all('video')
+        video = video_tag[0]
+        video = str(video).split('src="')[1]
+        video = video.replace('">\n</video>', '')
+        file_name = args.name + ".mp4"
+        r = requests.get(video).content
+        x = open(file_name, 'wb')
+        x.write(r)
+        x.close()
+    except:
+        print(crayons.red('Something went wrong! Check your syntax! '))
+
 if args.image == True:
     if 'vsco' in args.url:
         vscoImage()
@@ -163,3 +185,5 @@ elif args.image == False:
         facebookVideo(args.url)
     elif 'twitch' in args.url:
         twitchClip(args.url)
+    elif 'tiktok' in args.url:
+        tiktokVideo(args.url)
