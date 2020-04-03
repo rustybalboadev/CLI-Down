@@ -31,4 +31,13 @@
   <code>python main.py url output_name</code><br>
   Longer Videos <u>DO</u> Take longer to download
 </h3>
+<h1 align='center'>Twitch Clip</h1>
+<h3 align='center'>
+  <code>python main.py url output_name</code><br>
+</h3>
+
+<h1 align='center'>TikTok Video</h1>
+<h3 align='center'>
+  <code>python main.py url output_name</code><br>
+</h3
 
