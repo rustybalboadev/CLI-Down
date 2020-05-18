@@ -1,6 +1,7 @@
 <p align='center'>
   <img src='https://github.com/RustyBalboadev/CLI-Down/blob/master/CLI-Down.png'>
 </p>
+
 # CLI-Down
 
 # Usage 🔧
