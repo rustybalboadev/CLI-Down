@@ -1,43 +1,24 @@
 <p align='center'>
   <img src='https://github.com/RustyBalboadev/CLI-Down/blob/master/CLI-Down.png'>
-  <h1 align='center'>CLI-Down</h1><hr>
-  <h1 align='center'>Usage</h1>
 </p>
-<h3 align='center'>
-  Standard Syntax: <code>python main.py url output_name [-i]</code>
-</h3>
-  
+# CLI-Down
 
-<h1 align='center'>VSCO</h1>
+# Usage 🔧
 
-<h3 align='center'>
-  <code>python main.py url -i output_name</code>
-</h3>
-<h1 align='center'>Instagram Photo</h1>
+```
+usage: main.py [-h] [-i] url name
 
-<h3 align='center'>
-  <code>python main.py url -i output_name</code>
-</h3>
+positional arguments:
+  url          URL to download video from ex. https://www.instagram.com/p/id
+  name         Output name
 
-<h1 align='center'>Instagram Video</h1>
+optional arguments:
+  -h, --help   show this help message and exit
+  -i, --image
+```
 
-<h3 align='center'>
-  <code>python main.py url output_name</code>
-</h3>
-
-<h1 align='center'>Facebook Video</h1>
-
-<h3 align='center'>
-  <code>python main.py url output_name</code><br>
-  Longer Videos <u>DO</u> Take longer to download
-</h3>
-<h1 align='center'>Twitch Clip</h1>
-<h3 align='center'>
-  <code>python main.py url output_name</code><br>
-</h3>
-
-<h1 align='center'>TikTok Video</h1>
-<h3 align='center'>
-  <code>python main.py url output_name</code><br>
-</h3
-
+# Examples 💡
+```
+python main.py -i https://www.instagram.com/p/CATBmJ9JCSo/ instagram_image
+python main.py https://www.instagram.com/p/B4xWatkjsPa/ instagram_video
+```
