@@ -6,6 +6,7 @@ import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--image', action='store_true')
@@ -14,7 +15,7 @@ parser.add_argument('name', help='Output name')
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--log-level=3')
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 args = parser.parse_args()
 res = requests.get(args.url)
 dec = res.content.decode()
@@ -165,7 +166,10 @@ def tiktokVideo(url):
         video = video_tag[0]
         video = str(video).split('src="')[1]
         video = video.replace('">\n</video>', '')
+        print(crayons.green('Direct Link: \n{}\n'.format(video)))
+        time.sleep(1)
         file_name = args.name + ".mp4"
+        print(crayons.green('Saving Video: {}'.format(file_name)))
         r = requests.get(video).content
         x = open(file_name, 'wb')
         x.write(r)
