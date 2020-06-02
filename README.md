@@ -3,7 +3,7 @@
 </p>
 
 # Usage 🔧
-
+``pip install -r requirements.txt``
 ```
 usage: main.py [-h] [-i] url name
 
