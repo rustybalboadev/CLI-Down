@@ -3,3 +3,4 @@ requests==2.23.0
 crayons==0.3.0
 selenium==3.141.0
 beautifulsoup4==4.9.1
+swag==on
